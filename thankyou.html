@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You</title>
+  <style>
+    /* Base styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #22252a 0%, #1a1d21 100%);
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .thank-you-container {
+      text-align: center;
+      max-width: 700px;
+      padding: 60px 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      z-index: 10;
+    }
+    
+    .thank-you-title {
+      font-size: 48px;
+      margin-bottom: 24px;
+      color: #47b8e0;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .thank-you-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: #47b8e0;
+      border-radius: 3px;
+    }
+    
+    .thank-you-message {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 32px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .return-button {
+      display: inline-block;
+      padding: 14px 32px;
+      background-color: #47b8e0;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(71, 184, 224, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+    
+    .return-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(71, 184, 224, 0.4);
+      background-color: #35abd3;
+    }
+    
+    /* Background animation */
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+    }
+    
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(71, 184, 224, 0.1);
+      animation: float 8s ease-in-out infinite;
+    }
+    
+    .bubble:nth-child(1) {
+      width: 80px;
+      height: 80px;
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+    
+    .bubble:nth-child(2) {
+      width: 120px;
+      height: 120px;
+      top: 60%;
+      left: 20%;
+      animation-delay: 1s;
+    }
+    
+    .bubble:nth-child(3) {
+      width: 40px;
+      height: 40px;
+      top: 30%;
+      right: 30%;
+      animation-delay: 2s;
+    }
+    
+    .bubble:nth-child(4) {
+      width: 100px;
+      height: 100px;
+      bottom: 20%;
+      right: 15%;
+      animation-delay: 3s;
+    }
+    
+    .bubble:nth-child(5) {
+      width: 60px;
+      height: 60px;
+      bottom: 30%;
+      left: 30%;
+      animation-delay: 4s;
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translateY(-40px) translateX(20px);
+        opacity: 0.4;
+      }
+      100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.8;
+      }
+    }
+    
+    /* Check icon animation */
+    .check-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 36px;
+      border-radius: 50%;
+      background-color: rgba(71, 184, 224, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .check-icon svg {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .checkmark {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: dash 2s ease-in-out forwards;
+    }
+    
+    .circle {
+      stroke-dasharray: 255;
+      stroke-dashoffset: 255;
+      animation: dash 2s ease-in-out forwards;
+      animation-delay: 0.5s;
+    }
+    
+    @keyframes dash {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    
+    /* Additional fade-in animation */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
+    }
+    
+    .fade-in-delay-1 {
+      animation-delay: 0.5s;
+    }
+    
+    .fade-in-delay-2 {
+      animation-delay: 1s;
+    }
+    
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background bubbles -->
+  <div class="background">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+  
+  <div class="thank-you-container">
+    <!-- Animated check mark -->
+    <div class="check-icon">
+      <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+        <circle class="circle" cx="26" cy="26" r="25" fill="none" stroke="#47b8e0" stroke-width="2" />
+        <path class="checkmark" fill="none" stroke="#47b8e0" stroke-width="2" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+      </svg>
+    </div>
+    
+    <h1 class="thank-you-title fade-in">Thank You!</h1>
+    <p class="thank-you-message fade-in fade-in-delay-1">
+      Your form has been successfully submitted. We appreciate your interest and will contact you shortly. 
+      Our team is excited to connect with you and discuss how we can help meet your needs.
+    </p>
+    <button class="return-button fade-in fade-in-delay-2" onclick="window.close()">Return to Form</button>
+  </div>
+</body>
+</html>
